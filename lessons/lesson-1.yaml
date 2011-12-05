@@ -1,0 +1,18 @@
+---
+intro: |
+  Lesson 1 is all about data. Ultimately, everything in your application needs
+  data. Data represent individual packets of information about a thing; and the
+  thing the information is about is determined by the purpose of your program.
+
+  Data are the simplest elements of the application. There are two basic types
+  of data: strings and numbers. Every datum ultimately comes from either a human
+  or a piece of sensory equipment, or is the result of modifying a datum that
+  did. You're probably a human, so let's begin.
+
+step1: |
+  First we'll input your name. Your name is a string because it's not a number.
+  Even if your name is Seven, that's a string; a string is a sequence of
+  characters.
+
+  To input your name, surround it with quotes. In Javascript you can use either
+  single quotes (') or double quotes (") but they have to match.
