@@ -11,11 +11,13 @@ rl.on('line', function(line) {
     }
 });
     
+rl.setPrompt('> ');
 var argv = require('optimist').argv;
 
 var lesson_no = argv.lesson || 1;
 
 var lesson = require('./lessons/lesson-' + lesson_no++);
+
 
 (function() {
     var step = -1;
@@ -23,23 +25,25 @@ var lesson = require('./lessons/lesson-' + lesson_no++);
     function next() {
         step++;
         lesson[step].start(rl);
-        lesson();
+        run();
     }
 
-    function lesson() {
+    function run() {
         var input = rl.prompt();
         try {
             var result = eval(input);
-            if (lesson[step].data(result)) {
+            if (lesson[step].data(result, rl)) {
                 process.nextTick(next);
             }
             else {
-                process.nextTick(lesson);
+                process.nextTick(run);
             }
         }
         catch (e) {
             console.log(e);
-            process.nextTick(lesson);
+            process.nextTick(run);
         }
     }
+    
+    next();
 })();

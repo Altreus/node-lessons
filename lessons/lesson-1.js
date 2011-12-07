@@ -1,7 +1,7 @@
 var rl;
 require('js-yaml');
 
-var messages = require('./lesson-1.yaml');
+var messages = require('./lesson-1.yaml')[0];
 
 module.exports = [
     {
@@ -13,7 +13,7 @@ module.exports = [
                 return true;
             }
 
-            rl.write(message.step1fail);
+            rl.write(messages.step1fail);
         },
     },
 ];
