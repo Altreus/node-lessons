@@ -1,19 +1,18 @@
-var rl;
 require('js-yaml');
 
 var messages = require('./lesson-1.yaml')[0];
 
 module.exports = [
     {
-        start: function(rl) {
-            rl.write(messages.step1 + "\n");
+        start: function() {
+            console.log(messages.step1);
         },
-        data: function(data, rl) {
+        data: function(data) {
             if (typeof data == 'string') {
                 return true;
             }
 
-            rl.write(messages.step1fail);
+            console.log(messages.step1fail);
         },
     },
 ];
